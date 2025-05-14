@@ -5,7 +5,7 @@ import time
 class Mario:
     def __init__(self, x, y):
         # Mario's hitbox/position rectangle
-        self.rect = pygame.Rect(x, y, 16, 32)
+        self.rect = pygame.Rect(x, y, 16, 30)
         # self.color = (255, 0, 0)
         spritesheet = pygame.image.load("../assets/mariosprite.png").convert_alpha()  # Mario image
        # Extract the correct region (259, 1, 16, 32)
@@ -97,7 +97,7 @@ class Mario:
         self.wallslide_start_x = 0          # Is the x position  of mario when the wallslide started
 
         # === Size Constants ===
-        self.big_height = 32                # Height when big
+        self.big_height = 30                # Height when big
         self.small_height = 16              # Height when crouching
 
     def apply_gravity(self, platforms):

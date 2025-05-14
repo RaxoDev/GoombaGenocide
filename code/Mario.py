@@ -286,6 +286,7 @@ class Mario:
         pass
 
     def stomping(self):
+        pass
         # Activate stomp: fast drop downward
         if not self.on_ground:
             self.velocity_y = self.stomp_speed

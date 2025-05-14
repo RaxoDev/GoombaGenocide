@@ -1,5 +1,10 @@
 import pygame
 
+KEY_LEFT = pygame.K_LEFT
+KEY_RIGHT = pygame.K_RIGHT
+KEY_JUMP = pygame.K_LALT
+KEY_SPRINT = pygame.K_LCTRL
+
 class Controls:
     def __init__(self, mario):
         self.mario = mario  # Reference to the Mario instance

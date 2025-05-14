@@ -58,7 +58,7 @@ class Mario:
         self.velocity_x = 0                 # Horizontal velocity
         self.velocity_y = 0                 # Vertical velocity
         self.speed = 2                      # Walking speed
-        self.sprint_speed = 5               # Sprinting speed
+        self.sprint_speed = 3.5               # Sprinting speed
         self.friction = 0.4                 # Not used in this code but might be for deceleration
         self.jump_force = -8               # Standard jump force
         self.max_jump_force = -22           # Max charged jump force
@@ -287,10 +287,6 @@ class Mario:
 
     def stomping(self):
         pass
-        # Activate stomp: fast drop downward
-        if not self.on_ground:
-            self.velocity_y = self.stomp_speed
-            self.stomp = True
 
     def draw(self, screen, adjusted_rect):
         screen.blit(self.image, adjusted_rect)

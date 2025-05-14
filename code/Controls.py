@@ -16,17 +16,17 @@ class Controls:
 
         # === Horizontal movement logic ===
         target_speed = 0  # Target speed to transition toward
-        if keys[pygame.K_RIGHT] and not keys[pygame.K_LEFT]:
+        if keys[KEY_RIGHT] and not keys[KEY_LEFT]:
             # Move right, using sprint speed if sprinting
             target_speed = self.mario.sprint_speed if self.mario.sprinting else self.mario.speed
-        if keys[pygame.K_LEFT] and not keys[pygame.K_RIGHT]:
+        if keys[KEY_LEFT] and not keys[KEY_RIGHT]:
             # Move left, using sprint speed if sprinting
             target_speed = -self.mario.sprint_speed if self.mario.sprinting else -self.mario.speed
 
-        if keys[pygame.K_RIGHT]:
+        if keys[KEY_RIGHT]:
             self.is_moving_right = True
             self.is_moving_left = False
-        elif keys[pygame.K_LEFT]:
+        elif keys[KEY_LEFT]:
             self.is_moving_right = False
             self.is_moving_left = True
         else:
@@ -50,26 +50,26 @@ class Controls:
             self.mario.stopCrouch()
 
         # === Sprinting only works when not crouching ===
-        self.mario.sprinting = keys[pygame.K_LSHIFT] and not self.mario.crouch
+        self.mario.sprinting = keys[KEY_SPRINT] and not self.mario.crouch
 
         # === Wallslide behavior control ===
         if self.mario.wallslide:
             # Cancel wallslide if pressing away from wall direction
-            if (keys[pygame.K_RIGHT]) and (self.mario.wall_dir == "left"):
+            if (keys[KEY_RIGHT]) and (self.mario.wall_dir == "left"):
                 self.mario.wallslide = False
-            if (keys[pygame.K_LEFT]) and (self.mario.wall_dir == "right"):
+            if (keys[KEY_LEFT]) and (self.mario.wall_dir == "right"):
                 self.mario.wallslide = False
-            if not (keys[pygame.K_LEFT]) and (self.mario.wall_dir == "left"):
+            if not (keys[KEY_LEFT]) and (self.mario.wall_dir == "left"):
                 self.mario.wallslide = False
-            if not (keys[pygame.K_RIGHT]) and (self.mario.wall_dir == "right"):
+            if not (keys[KEY_RIGHT]) and (self.mario.wall_dir == "right"):
                 self.mario.wallslide = False
 
         # === Wallslide state input checks ===
-        self.mario.pressLeft = (keys[pygame.K_LEFT]) and (self.mario.wall_dir == "left")
-        self.mario.pressRight = (keys[pygame.K_RIGHT]) and (self.mario.wall_dir == "right")
+        self.mario.pressLeft = (keys[KEY_LEFT]) and (self.mario.wall_dir == "left")
+        self.mario.pressRight = (keys[KEY_RIGHT]) and (self.mario.wall_dir == "right")
 
         # === Jumping ===
-        if keys[pygame.K_SPACE]:
+        if keys[KEY_JUMP]:
             if self.mario.on_ground and not self.jump_initiated:
                 # Jump from ground
                 self.mario.jump()

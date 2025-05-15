@@ -3,7 +3,7 @@ import pygame
 KEY_LEFT = pygame.K_LEFT
 KEY_RIGHT = pygame.K_RIGHT
 KEY_JUMP = pygame.K_LSHIFT
-KEY_SPRINT = pygame.J_SPACE
+KEY_SPRINT = pygame.K_SPACE
 
 class Controls:
     def __init__(self, mario):
